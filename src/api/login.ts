@@ -1,10 +1,8 @@
 import request from '@/utils/request'
 
-const prefix = import.meta.env.VITE_WEB_AUTH_URL
-
 const Api = {
-  login: `${prefix}/auth/login`,
-  getUserInfo: `${prefix}/auth/getUserInfo`
+  login: `/auth/login`,
+  getUserInfo: `/auth/getUserInfo`
 }
 // 登录
 export function login(data: any) {

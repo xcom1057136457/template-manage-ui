@@ -58,16 +58,9 @@ export default defineConfig({
     https: false,
     proxy: {
       '/api': {
-        // target: 'http://admin.finance.com', // 本地
-        target: 'https://tfinanceadmin.gymcity.com.cn', // 测试
-        // target: 'https://financeadmin.gymcity.com.cn', // 正式
+        target: 'http://localhost:4000',
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, '')
-      },
-      '/authapi': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: (path: string) => path.replace(/^\/authapi/, '')
       }
     }
   },
@@ -76,16 +69,9 @@ export default defineConfig({
     https: false,
     proxy: {
       '/api': {
-        // target: 'http://admin.finance.com', // 本地
-        target: 'https://tfinanceadmin.gymcity.com.cn', // 测试
-        // target: 'https://financeadmin.gymcity.com.cn', // 正式
+        target: 'http://localhost:4000',
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, '')
-      },
-      '/authapi': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: (path: string) => path.replace(/^\/authapi/, '')
       }
     }
   },

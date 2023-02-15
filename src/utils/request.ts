@@ -7,8 +7,7 @@ import { ElMessage, ElMessageBox, ElNotification } from 'element-plus'
 import router from '@/router'
 
 const service = axios.create({
-  baseURL: '',
-  // baseURL: import.meta.env.VITE_WEB_BASE_URL,
+  baseURL: import.meta.env.VITE_WEB_BASE_URL,
   withCredentials: true,
   timeout: 30000
 })

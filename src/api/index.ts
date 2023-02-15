@@ -1,9 +1,7 @@
 import request from '@/utils/request'
 
-const prefix = import.meta.env.VITE_WEB_AUTH_URL
-
 const Api = {
-  getRoutes: `${prefix}/auth/getRoutes`
+  getRoutes: `/auth/getRoutes`
 }
 
 // 获取权限菜单
