@@ -29,30 +29,26 @@ router.beforeEach(
     const { lockShow, isLock } = storeToRefs(useGlobalStore())
     const whiteList = ['/login']
 
-    if (import.meta.env.MODE === 'development') {
-      if (getToken()) {
-        lockShow.value = isLock.value
-        if (to.path === '/login') {
-          next('/')
-        } else if (!userInfo.value?.id) {
-          await getUserInfo()
-          const accessRoutes: any = await generateRoutes()
-          accessRoutes.forEach((route: any) => {
-            if (!isHttp(route.path)) {
-              router.addRoute(route)
-            }
-          })
-          next({ ...to, replace: true })
-        } else {
-          next()
-        }
-      } else if (whiteList.includes(to.path)) {
-        next()
+    if (getToken()) {
+      lockShow.value = isLock.value
+      if (to.path === '/login') {
+        next('/')
+      } else if (!userInfo.value?.id) {
+        await getUserInfo()
+        const accessRoutes: any = await generateRoutes()
+        accessRoutes.forEach((route: any) => {
+          if (!isHttp(route.path)) {
+            router.addRoute(route)
+          }
+        })
+        next({ ...to, replace: true })
       } else {
-        next(`/login?redirect=${to.fullPath}`)
+        next()
       }
-    } else {
+    } else if (whiteList.includes(to.path)) {
       next()
+    } else {
+      next(`/login?redirect=${to.fullPath}`)
     }
   }
 )
