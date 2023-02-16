@@ -172,7 +172,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { reactive, onMounted, ref } from 'vue'
+import { reactive, onMounted, ref, shallowRef } from 'vue'
 import { nanoid } from 'nanoid'
 import * as echarts from 'echarts'
 import {
@@ -220,7 +220,7 @@ const initChart = () => {
   Promise.all([initChart1(), initChart2(), initChart3(), initChart4()])
 }
 
-const chart1 = ref<any>(null)
+const chart1 = shallowRef()
 const initChart1 = () => {
   return new Promise((resolve) => {
     const chartDom: any = document.getElementById('dashboard-chart-1')
@@ -232,7 +232,7 @@ const initChart1 = () => {
   })
 }
 
-const chart2 = ref<any>(null)
+const chart2 = shallowRef()
 const initChart2 = () => {
   return new Promise((resolve) => {
     const chartDom: any = document.getElementById('dashboard-chart-2')
@@ -244,7 +244,7 @@ const initChart2 = () => {
   })
 }
 
-const chart3 = ref<any>(null)
+const chart3 = shallowRef()
 const initChart3 = () => {
   return new Promise((resolve) => {
     const chartDom: any = document.getElementById('dashboard-chart-3')
@@ -256,7 +256,7 @@ const initChart3 = () => {
   })
 }
 
-const chart4 = ref<any>(null)
+const chart4 = shallowRef()
 const initChart4 = () => {
   return new Promise((resolve) => {
     const chartDom: any = document.getElementById('dashboard-chart-4')
