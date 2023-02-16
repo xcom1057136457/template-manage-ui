@@ -5,16 +5,8 @@ body,
 #app {
   height: 100%;
   background-color: var(--el-bg-color-page);
-  font-family: Puhuiti, 'Helvetica Neue', Helvetica, 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
 * {
   list-style: none;
-}
-
-@font-face {
-  font-family: Puhuiti;
-  src: url('../fonts/Alibaba_PuHuiTi_2.0_55_Regular_55_Regular.ttf');
-  font-display: 'swap';
 }
