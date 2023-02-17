@@ -2,6 +2,10 @@
 
 <div align=center><a href="https://template.xiaomiaolxy.cn/">项目预览</a></div>
 
+__账号： admin__
+
+__密码：123456__
+
 ### 1. 技术栈
 
 **Vue3 + Vue Router + Pinia + TypeScript + Element Plus + Naive UI + Axios**
