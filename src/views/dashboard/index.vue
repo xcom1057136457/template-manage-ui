@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-wrapper">
-    <el-row :gutter="20" class="mb-[20px] w-full">
+    <el-row :gutter="20" class="mb-[20px]">
       <el-col :span="6" v-for="item in overviewBlockList" :key="item.id">
         <div class="flex justify-between bg-white px-[30px] py-[20px]">
           <template v-if="item.icon === 'i-icon-park-solid-peoples'">
@@ -49,7 +49,7 @@
       <div id="dashboard-chart-1" class="h-full w-full"></div>
     </div>
 
-    <el-row :gutter="20" class="mb-[20px] w-full">
+    <el-row :gutter="20" class="mb-[20px]">
       <el-col :span="8">
         <div class="h-[316px] bg-white p-4">
           <div id="dashboard-chart-2" class="h-full w-full"></div>
@@ -69,7 +69,7 @@
       </el-col>
     </el-row>
 
-    <el-row class="w-full" :gutter="20">
+    <el-row :gutter="20">
       <el-col :span="12">
         <div class="box-border h-full bg-white p-3">
           <el-table :data="tableData" stripe>
@@ -109,7 +109,7 @@
       <el-col :span="6">
         <div class="flex h-full flex-col bg-white">
           <div
-            class="border-x-0 border-t-0 border-b border-solid border-gray-100 py-2 px-3 text-lg font-bold text-black/50"
+            class="border-x-0 border-t-0 border-b border-solid border-gray-100 py-2 px-3 text-base font-bold text-black/50"
             >Todo List</div
           >
           <div class="flex-1 px-3">

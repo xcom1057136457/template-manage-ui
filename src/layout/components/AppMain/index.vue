@@ -1,5 +1,8 @@
 <template>
-  <div :class="{ 'bg-white dark:bg-black p-3': !route.meta.customBg }">
+  <div
+    :class="{ 'bg-white dark:bg-black p-3': !route.meta.customBg }"
+    class="overflow-hidden"
+  >
     <router-view v-slot="{ Component, route }">
       <keep-alive :include="cachedViews">
         <component :is="Component" :key="route.path" />
