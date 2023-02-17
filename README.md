@@ -65,9 +65,8 @@ export const useGlobalStore = defineStore('global', {
 
 ### 3. 项目预览
 
-![image-20230217153135688](C:\Users\admin、\AppData\Roaming\Typora\typora-user-images\image-20230217153135688.png)
+[![pSqC8Wq.png](https://s1.ax1x.com/2023/02/17/pSqC8Wq.png)](https://imgse.com/i/pSqC8Wq)
 
 [![pSqCAJI.png](https://s1.ax1x.com/2023/02/17/pSqCAJI.png)](https://imgse.com/i/pSqCAJI)
 
 [![pSqCZSP.png](https://s1.ax1x.com/2023/02/17/pSqCZSP.png)](https://imgse.com/i/pSqCZSP)
-
