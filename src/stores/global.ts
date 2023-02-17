@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useGlobalStore = defineStore('global', {
   persist: {
-    key: 'GlobalStore',
+    key: '__globalstore__',
     storage: window.localStorage,
     paths: ['isCollapse', 'isLock', 'password']
   },

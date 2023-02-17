@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useTagViewStore = defineStore('tagview', {
   persist: {
-    key: 'TagViewStore',
+    key: '__tagviewstore__',
     storage: window.sessionStorage,
     paths: ['tagsList']
   },
