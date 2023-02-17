@@ -270,8 +270,35 @@ const initChart4 = () => {
 
 const checkList = ref<any>([])
 
+const listenWindow = () => {
+  const resizeChart = () => {
+    setTimeout(() => {
+      chart1.value?.resize()
+      chart2.value?.resize()
+      chart3.value?.resize()
+      chart4.value?.resize()
+    }, 300)
+  }
+
+  const MutationObserver = window.MutationObserver
+  const observer = new MutationObserver(function () {
+    resizeChart()
+  })
+  const dom: any = document.querySelector('.el-aside')
+  observer.observe(dom, {
+    attributes: true,
+    attributeFilter: ['style'],
+    attributeOldValue: true
+  })
+
+  window.addEventListener('resize', () => {
+    resizeChart()
+  })
+}
+
 onMounted(() => {
   initChart()
+  listenWindow()
 })
 </script>
 
