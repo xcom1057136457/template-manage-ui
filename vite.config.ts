@@ -12,6 +12,9 @@ import { resolve } from 'path'
 import viteCompression from 'vite-plugin-compression'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
+// 获取当前时间戳
+const timeStamp = new Date().getTime()
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -70,7 +73,8 @@ export default defineConfig({
     https: false,
     proxy: {
       '/api': {
-        target: 'http://localhost:4000', // 本地
+        // target: 'http://localhost:4000', // 本地
+        target: 'http://1.117.86.244:4000', // 线上
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, '')
       }
@@ -98,6 +102,13 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true
+      }
+    },
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].${timeStamp}.js`,
+        chunkFileNames: `assets/[name].${timeStamp}.js`,
+        assetFileNames: `assets/[name].${timeStamp}.[ext]`
       }
     }
   }
