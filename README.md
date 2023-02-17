@@ -1,6 +1,6 @@
 [![pSqCfTH.png](https://s1.ax1x.com/2023/02/17/pSqCfTH.png)](https://imgse.com/i/pSqCfTH)
 
-<div align=center><font size=25 color=teal>TEMPLATE-MANAGE-UI</font></div>
+<div align=center style="font-size:30px; color:teal">TEMPLATE-MANAGE-UI</div>
 
 <div align=center><a href="https://template.xiaomiaolxy.cn/">项目预览</a></div>
 
