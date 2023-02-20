@@ -45,6 +45,24 @@
             />
           </el-form-item>
 
+          <el-form-item prop="imageCode">
+            <div class="flex w-full items-center">
+              <el-input
+                v-model="loginParams.imageCode"
+                placeholder="验证码"
+                :prefix-icon="Key"
+                clearable
+                class="mr-2 flex-1"
+                @keyup.enter="onLogin"
+              />
+              <image-code
+                class="flex items-center overflow-hidden rounded-sm"
+                @click="refreshCode"
+                :identifyCode="identifyCode"
+              />
+            </div>
+          </el-form-item>
+
           <el-form-item prop="rememberMe">
             <el-checkbox v-model="loginParams.rememberMe">记住账号</el-checkbox>
           </el-form-item>
@@ -71,7 +89,7 @@ export default {
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref, watch } from 'vue'
-import { User, Lock } from '@element-plus/icons-vue'
+import { User, Lock, Key } from '@element-plus/icons-vue'
 import type { FormRules, FormInstance } from 'element-plus'
 import Cookies from 'js-cookie'
 import { useRoute, useRouter } from 'vue-router'
@@ -95,12 +113,24 @@ watch(
 const loginParams = reactive<any>({
   username: '',
   password: '',
+  imageCode: '',
   rememberMe: false
 })
 
+const validateImageCode = (rule: any, value: any, callback: Function) => {
+  if (value === '') {
+    callback(new Error('请输入验证码!'))
+  } else if (value !== identifyCode.value) {
+    callback(new Error('验证码错误!'))
+  } else {
+    callback()
+  }
+}
+
 const loginRules = reactive<FormRules>({
   username: [{ required: true, message: '请输入用户名!', trigger: 'blur' }],
-  password: [{ required: true, message: '请输入密码!', trigger: 'blur' }]
+  password: [{ required: true, message: '请输入密码!', trigger: 'blur' }],
+  imageCode: [{ validator: validateImageCode, trigger: 'blur' }]
 })
 
 const LoginForm = ref<FormInstance>()
@@ -142,7 +172,26 @@ const getAccountFromCookie = () => {
   loginParams.rememberMe = rememberMe
 }
 
+const identifyCodes = '123456789'
+const identifyCode = ref<string>('3212')
+const randomNum = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min) + min)
+}
+
+const makeCode = (o: any, l: any) => {
+  for (let i = 0; i < l; i++) {
+    identifyCode.value += o[randomNum(0, o.length)]
+  }
+}
+
+const refreshCode = () => {
+  identifyCode.value = ''
+  makeCode(identifyCodes, 4)
+}
+
 onMounted(() => {
+  identifyCode.value = ''
+  makeCode(identifyCodes, 4)
   getAccountFromCookie()
 })
 </script>
