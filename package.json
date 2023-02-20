@@ -20,6 +20,7 @@
     "dayjs": "^1.11.7",
     "echarts": "^5.4.1",
     "element-plus": "^2.2.27",
+    "identify": "^0.1.5",
     "js-cookie": "^3.0.1",
     "jsencrypt": "^3.3.1",
     "lodash-es": "^4.17.21",
