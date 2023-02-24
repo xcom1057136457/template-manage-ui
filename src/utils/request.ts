@@ -13,7 +13,7 @@ const service = axios.create({
 })
 
 service.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  (config: AxiosRequestConfig): any => {
     const { getToken } = useAuth()
 
     // 是否需要设置 token
