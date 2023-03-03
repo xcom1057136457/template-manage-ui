@@ -61,8 +61,7 @@ export default defineConfig({
     https: false,
     proxy: {
       '/api': {
-        // target: 'http://localhost:4000', // 本地
-        target: 'http://1.117.86.244:4000', // 线上
+        target: 'http://localhost:4000', // 本地
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, '')
       }
@@ -73,8 +72,7 @@ export default defineConfig({
     https: false,
     proxy: {
       '/api': {
-        // target: 'http://localhost:4000', // 本地
-        target: 'http://1.117.86.244:4000', // 线上
+        target: 'http://localhost:4000', // 本地
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, '')
       }
